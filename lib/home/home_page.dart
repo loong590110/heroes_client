@@ -1,19 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
+import 'package:heroes_client/theme/theme.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage(this._themeData);
-
-  final ThemeData _themeData;
-
   @override
-  _HomePageState createState() => _HomePageState(_themeData);
+  _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  _HomePageState(this._themeData);
-
   int _counter = 0;
-  ThemeData _themeData;
 
   void _incrementCounter() {
     setState(() {
@@ -25,7 +20,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: _themeData.scaffoldBackgroundColor,
+        backgroundColor: themeData.scaffoldBackgroundColor,
         elevation: 0.5,
         title: Row(
           children: [
@@ -33,17 +28,38 @@ class _HomePageState extends State<HomePage> {
               child: Image.asset('assets/images/logo.png'),
               padding: EdgeInsets.only(right: 5),
             ),
+            Expanded(
+              child: Center(
+                child: Container(
+                  padding: EdgeInsets.only(left: 5, right: 5),
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "search...",
+                    style: TextStyle(color: Colors.grey, fontSize: 14),
+                  ),
+                  width: 260,
+                  height: 24,
+                  decoration: BoxDecoration(
+                    color: Color.fromRGBO(240, 240, 240, 1),
+                    border: Border(),
+                    borderRadius: BorderRadius.all(Radius.circular(5)),
+                  ),
+                ),
+              ),
+            ),
             Container(
-              child: Text(
-                "Home",
-                style: TextStyle(color: Colors.deepOrangeAccent),
+              child: Icon(
+                Icons.search,
+                size: 20,
+                color: Colors.grey,
               ),
               padding: EdgeInsets.only(left: 10),
             ),
             Container(
-              child: Text(
-                "Movie",
-                style: TextStyle(color: Colors.deepOrangeAccent),
+              child: Icon(
+                Icons.insert_emoticon,
+                size: 20,
+                color: Colors.grey,
               ),
               padding: EdgeInsets.only(left: 10),
             )
@@ -53,7 +69,7 @@ class _HomePageState extends State<HomePage> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
+          children: [
             Text(
               'You have pushed the button this many times:',
             ),
