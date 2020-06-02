@@ -15,20 +15,21 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final count = MediaQuery.of(context).size.width / 300;
+    final gridCount = count > 5 ? 5 : count > 1 ? count.floor() : 1;
     final items = fetchHomeList();
-    final itemRatio = 1.1;
+    final itemRatio = gridCount > 1 ? 1.1 : 1.25;
     return Scaffold(
       appBar: Header(context),
       body: GridView.builder(
         padding: EdgeInsets.only(left: 15, right: 15),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: count.floor(),
+            crossAxisCount: gridCount,
             mainAxisSpacing: 15,
             crossAxisSpacing: 30,
             childAspectRatio: itemRatio),
         itemCount: items.length,
         itemBuilder: (context, index) =>
-            HomeItemWidget(items[index], itemRatio),
+            HomeItemWidget(gridCount, items[index], itemRatio),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {

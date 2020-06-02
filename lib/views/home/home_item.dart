@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:heroes_client/models/home_list.dart';
 
 class HomeItemWidget extends AspectRatio {
-  HomeItemWidget(HomeItem item, double aspectRatio)
+  HomeItemWidget(int gridCount, HomeItem item, double aspectRatio)
       : super(
             aspectRatio: aspectRatio,
             child: Column(
@@ -65,19 +65,20 @@ class HomeItemWidget extends AspectRatio {
                               ),
                             ),
                             Text(
-                              item.author,
+                              gridCount > 1
+                                  ? item.author
+                                  : "${item.author} • ${item.watchedAndDate}",
                               style: TextStyle(
                                   fontSize: 14, color: Colors.black45),
                               maxLines: 1,
                             ),
-                            Text(
-                              item.watched > 100000
-                                  ? "${item.watched / 100000}万次观看•${item.date}"
-                                  : "${item.watched}次观看•${item.date}",
-                              style: TextStyle(
-                                  fontSize: 14, color: Colors.black45),
-                              maxLines: 1,
-                            ),
+                            if (gridCount > 1)
+                              Text(
+                                item.watchedAndDate,
+                                style: TextStyle(
+                                    fontSize: 14, color: Colors.black45),
+                                maxLines: 1,
+                              ),
                           ],
                         ),
                         padding: EdgeInsets.only(left: 8),

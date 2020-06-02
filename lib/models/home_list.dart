@@ -15,6 +15,10 @@ class HomeItem {
       this.duration,
       this.watched,
       this.date});
+
+  String get watchedAndDate => watched > 100000
+      ? "${watched / 100000}万次观看 • $date"
+      : "$watched次观看 • $date";
 }
 
 List<HomeItem> fetchHomeList() {
@@ -23,7 +27,7 @@ List<HomeItem> fetchHomeList() {
       if (i % 2 == 0)
         HomeItem(
             cover:
-                'https://i.ytimg.com/an_webp/ACdraZRANaU/mqdefault_6s.webp?du=3000&sqp=COrE1_YF&rs=AOn4CLAUwtA7djj-8c9a8R6S7tfXg3abBg',
+                'https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=1827386007,1763487904&fm=58&s=75927F974A324E9EE2BBB54C030070F0',
             avatar:
                 'https://yt3.ggpht.com/a-/AOh14Gi9VfjJiYooUQ6CMlO1Ulw02dQN9cEfYWF8=s68-c-k-c0x00ffffff-no-rj-mo',
             title: "eBook Online Book Reading App - Flutter UI - Speed Code",
@@ -34,9 +38,8 @@ List<HomeItem> fetchHomeList() {
       else if (i % 2 == 1)
         HomeItem(
             cover:
-                'https://i.ytimg.com/an_webp/FCyoHclCqc8/mqdefault_6s.webp?du=3000&sqp=CNC51_YF&rs=AOn4CLBgF_sIhN9V-xLAnPcfXCdoxStL9w',
-            avatar:
-                'https://yt3.ggpht.com/a-/AOh14Ghe-enl4XqtZ2U-FocaqVc9uQ0dTplYgupyQA=s68-c-k-c0x00ffffff-no-rj-mo',
+                'https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=596138266,858760027&fm=58&s=3ABD75845622875B0EC9C887030070CA',
+            avatar: 'https://img3.doubanio.com/icon/u216234476-1.jpg',
             title: "Draggable (Flutter Widget of the Week)",
             author: "flutter.dev",
             duration: "17:06",
