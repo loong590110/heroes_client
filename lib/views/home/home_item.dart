@@ -72,8 +72,8 @@ class HomeItemWidget extends AspectRatio {
                             ),
                             Text(
                               item.watched > 100000
-                                  ? "${item.watched / 100000}万次观看﹒${item.date}"
-                                  : "${item.watched}次观看﹒̇${item.date}",
+                                  ? "${item.watched / 100000}万次观看•${item.date}"
+                                  : "${item.watched}次观看•${item.date}",
                               style: TextStyle(
                                   fontSize: 14, color: Colors.black45),
                               maxLines: 1,
