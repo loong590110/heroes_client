@@ -14,8 +14,8 @@ class FlutterApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      onGenerateRoute: generateRoute,
-      initialRoute: HOME,
+      initialRoute: '/',
+      routes: routes,
     );
   }
 }

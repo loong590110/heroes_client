@@ -33,9 +33,7 @@ class _HomePageState extends State<HomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          HttpClient()
-              .get('http://129.211.165.246', 8888, 'heroes')
-              .then((value) {});
+          Navigator.of(context).pushNamed('/notfound');
         },
         tooltip: 'Increment',
         child: Icon(Icons.add),
