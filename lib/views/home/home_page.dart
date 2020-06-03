@@ -14,26 +14,33 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    final count = MediaQuery.of(context).size.width / 300;
+    final screenWidth = MediaQuery.of(context).size.width;
+    final count = screenWidth / 320;
     final gridCount = count > 5 ? 5 : count > 1 ? count.floor() : 1;
+    final gridPadding = 15.0;
+    final crossAxisSpacing = 30.0;
+    final itemWidth =
+        (screenWidth - crossAxisSpacing - gridPadding * 2) / gridCount;
+    final coverRatio = 1.7;
+    final itemHeight = itemWidth / coverRatio + (gridCount > 1 ? 95 : 75);
+    final itemRatio = itemWidth / itemHeight;
     final items = fetchHomeList();
-    final itemRatio = gridCount > 1 ? 1.1 : 1.25;
     return Scaffold(
       appBar: Header(context),
       body: GridView.builder(
-        padding: EdgeInsets.only(left: 15, right: 15),
+        padding: EdgeInsets.only(left: gridPadding, right: gridPadding),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: gridCount,
-            mainAxisSpacing: 15,
-            crossAxisSpacing: 30,
+            mainAxisSpacing: gridPadding,
+            crossAxisSpacing: crossAxisSpacing,
             childAspectRatio: itemRatio),
         itemCount: items.length,
         itemBuilder: (context, index) =>
-            HomeItemWidget(gridCount, items[index], itemRatio),
+            HomeItemWidget(gridCount, items[index], itemRatio, coverRatio),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.of(context).pushNamed('/notfound');
+          Navigator.of(context).pushNamed('/go');
         },
         tooltip: 'Increment',
         child: Icon(Icons.add),

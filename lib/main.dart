@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:heroes_client/routes/router.dart';
+import 'package:heroes_client/views/notfound/not_found_page.dart';
 
 void main() {
   runApp(FlutterApp());
@@ -15,6 +16,7 @@ class FlutterApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       initialRoute: '/',
+      onUnknownRoute: onUnknownRoute,
       routes: routes,
     );
   }

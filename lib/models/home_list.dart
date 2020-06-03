@@ -30,7 +30,7 @@ List<HomeItem> fetchHomeList() {
                 'https://dss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=1827386007,1763487904&fm=58&s=75927F974A324E9EE2BBB54C030070F0',
             avatar:
                 'https://yt3.ggpht.com/a-/AOh14Gi9VfjJiYooUQ6CMlO1Ulw02dQN9cEfYWF8=s68-c-k-c0x00ffffff-no-rj-mo',
-            title: "eBook Online Book Reading App - Flutter UI - Speed Code",
+            title: "eBook Online Book Reading App - Flutter UI - Speed Code Hello Flutter Speed Code Hello Flutter Speed Code Hello Flutter",
             author: "flutter",
             duration: "1:26:06",
             watched: 73630,

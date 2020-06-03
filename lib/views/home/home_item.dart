@@ -1,10 +1,12 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:heroes_client/models/home_list.dart';
 
 class HomeItemWidget extends AspectRatio {
-  HomeItemWidget(int gridCount, HomeItem item, double aspectRatio)
+  HomeItemWidget(
+      int gridCount, HomeItem item, double itemRatio, double coverRatio)
       : super(
-            aspectRatio: aspectRatio,
+            aspectRatio: itemRatio,
             child: Column(
               children: [
                 Container(
@@ -13,7 +15,7 @@ class HomeItemWidget extends AspectRatio {
                   child: Stack(
                     children: [
                       AspectRatio(
-                        aspectRatio: 1.75,
+                        aspectRatio: coverRatio,
                         child: Image.network(
                           item.cover,
                           scale: 0.1,
@@ -21,7 +23,7 @@ class HomeItemWidget extends AspectRatio {
                         ),
                       ),
                       AspectRatio(
-                        aspectRatio: 1.75,
+                        aspectRatio: coverRatio,
                         child: Container(
                           height: double.infinity,
                           alignment: Alignment.bottomRight,
@@ -62,6 +64,7 @@ class HomeItemWidget extends AspectRatio {
                                 style: TextStyle(
                                     fontSize: 16, color: Colors.black87),
                                 maxLines: 2,
+                                overflow: TextOverflow.clip,
                               ),
                             ),
                             Text(
