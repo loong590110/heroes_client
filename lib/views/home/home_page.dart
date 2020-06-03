@@ -1,7 +1,5 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:heroes_client/models/home_list.dart';
+import 'package:heroes_client/models/home_model.dart';
 import 'package:heroes_client/views/home/home_item.dart';
 
 import 'header.dart';
@@ -35,12 +33,14 @@ class _HomePageState extends State<HomePage> {
             crossAxisSpacing: crossAxisSpacing,
             childAspectRatio: itemRatio),
         itemCount: items.length,
-        itemBuilder: (context, index) =>
-            HomeItemWidget(gridCount, items[index], itemRatio, coverRatio),
+        itemBuilder: (context, index) => GestureDetector(
+          child: HomeItemWidget(gridCount, items[index], itemRatio, coverRatio),
+          onTap: () => Navigator.of(context).pushNamed('/play'),
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.of(context).pushNamed('/go');
+          Navigator.of(context).pushNamed('/add');
         },
         tooltip: 'Increment',
         child: Icon(Icons.add),

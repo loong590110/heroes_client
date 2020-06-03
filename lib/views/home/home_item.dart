@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:heroes_client/models/home_list.dart';
+import 'package:heroes_client/models/home_model.dart';
 
 class HomeItemWidget extends AspectRatio {
   HomeItemWidget(
