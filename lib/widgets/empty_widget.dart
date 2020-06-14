@@ -16,11 +16,15 @@ class EmptyWidget extends Column {
 class LoadingWidget extends Column {
   LoadingWidget(
       {String text,
-      TextStyle style = const TextStyle(color: Colors.grey, fontSize: 12)})
+      TextStyle style = const TextStyle(color: Colors.grey, fontSize: 13)})
       : super(
           children: [
             CircularProgressIndicator(),
-            if (text != null) Text(text, style: style),
+            if (text != null)
+              Container(
+                child: Text(text, style: style),
+                padding: EdgeInsets.only(top: 10),
+              ),
           ],
           mainAxisAlignment: MainAxisAlignment.center,
         );
