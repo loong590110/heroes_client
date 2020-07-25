@@ -17,6 +17,4 @@ samples, guidance on mobile development, and a full API reference.
 
 ## Screen Shots
 
-<img src="screenshots/splash_page.png" height="400" alt="Screenshot"/> 
-<img src="screenshots/home_page.png" height="400" alt="Screenshot"/>
-<img src="screenshots/not_found_page.png" height="400" alt="Screenshot"/>
+<img src="screenshots/splash_page.png" height="400" alt="Screenshot"/> <img src="screenshots/home_page.png" height="400" alt="Screenshot"/> <img src="screenshots/not_found_page.png" height="400" alt="Screenshot"/>
